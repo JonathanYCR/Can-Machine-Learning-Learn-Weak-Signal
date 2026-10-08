@@ -2,8 +2,6 @@
 
 二元 Logistic 模型下的弱信号学习：Monte Carlo 模拟、Ridge / Lasso / Ridgeless 比较，以及 Finance1、Macro1 实证分析。
 
-本目录按两份论文的结果并集整理：2026 年 3 月的 `Master's Thesis - Chengran Yang - 初稿.pdf` 和 2026 年 1 月的 `Thesis Draft - Chengran Yang.pdf`。论文、演示稿、文字说明、未采用的实验输出和模型压缩包已移除。现有文件仅移动或删除，保留文件的内容未修改；本 README 是唯一新增文件。
-
 ## 文件结构
 
 ```text
