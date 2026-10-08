@@ -205,30 +205,3 @@ Ridge 函数可通过 `lambdas` 指定惩罚网格，Lasso 函数可通过 `C_la
 参考输入集中在 `data/reference/`，保留原嵌套路径；大型 Finance2 输入位于 `data/local/finance2/`，使用时对应脚本原来的 `data1957-2022/`。NN / XGBoost 代码还需要匹配历史版本的 TensorFlow、Keras、XGBoost；部分探索代码需要 Python `glmnet`。MATLAB `.m` 程序需要 MATLAB 及相应工具箱；R 程序的依赖以其 `library(...)` 声明为准。这些扩展环境不包含在上面的论文 Python 环境中。
 
 数据来源沿用原项目：Finance1 为 Welch–Goyal 预测变量数据，Macro1 为 FRED-MD；其他输入包括 Adult、Bank Marketing、USREC、增长数据及原参考项目的微观数据。本次整理没有新增数据授权或许可证。
-
-## 上传 GitHub
-
-`data/local/finance2/` 约 6.46 GB，其中 `data.csv` 约 5.69 GB，仅在本地保留，不加入普通 Git 提交。论文主实验只需要 `data/thesis/`；参考项目与大型数据可分别管理。
-
-在确认仓库名称和远程地址后，可以先准备论文主项目的本地提交：
-
-```powershell
-git init
-git add README.md code results data/thesis
-git status --short
-git commit -m "Organize thesis code and results"
-```
-
-如需一并提供较小的探索和参考输入，再单独执行：
-
-```powershell
-git add data/benchmarks data/reference
-git status --short
-git commit -m "Add benchmark and reference inputs"
-```
-
-采用明确列出的路径暂存文件，不使用 `git add .`，以免把大型本地数据、`.venv/` 或 `generated/` 一并提交。本次整理未初始化 Git、创建远程仓库或上传任何文件。
-
-## 整理时的验证
-
-移动前后对 950 个保留文件核对 SHA-256，内容一致。80 个 Python 文件和 README 中五段 Python 示例通过语法解析；论文六个实证模块可导入，两份 MAT 输入可读取；图 1 可由保存的模拟记录在内存中重绘。表 1 的全部统计量与保留的模拟输入一致，表 2 的 12 个数值与原汇总程序从六份统计结果计算的数值一致。未执行完整 Monte Carlo、全部滚动交叉验证、MATLAB / R 或参考机器学习模型训练，也未将新计算结果覆盖到论文归档。
